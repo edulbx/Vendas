@@ -1,15 +1,23 @@
 import React from 'react';
 import Hero from './components/Hero';
 import ServiceCard from './components/ServiceCard';
-import ContactForm from './components/ContactForm';
 import ChatWidget from './components/ChatWidget';
 import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import WhatsAppButton from './components/WhatsAppButton';
+import ContactForm from './components/ContactForm';
 import { SERVICE_LEVELS } from './constants';
 import { BrainCircuit } from 'lucide-react';
 
 const App: React.FC = () => {
+  
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-dark-900 text-gray-100 font-sans selection:bg-brand-500/30 selection:text-brand-200">
       
@@ -18,12 +26,12 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2 text-white font-display font-bold text-xl">
             <BrainCircuit className="text-brand-500 w-8 h-8" />
-            <span className="tracking-tight">IA Estratégica</span>
+            <span className="tracking-tight">LogoStack</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-            <a href="#services" className="hover:text-brand-400 transition-colors">Soluções</a>
-            <a href="#methodology" className="hover:text-brand-400 transition-colors">Metodologia</a>
-            <a href="#contact" className="hover:text-brand-400 transition-colors">Contato</a>
+            <button onClick={() => scrollToSection('services')} className="hover:text-brand-400 transition-colors cursor-pointer bg-transparent border-none">Soluções</button>
+            <button onClick={() => scrollToSection('methodology')} className="hover:text-brand-400 transition-colors cursor-pointer bg-transparent border-none">Metodologia</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-brand-400 transition-colors cursor-pointer bg-transparent border-none">Contato</button>
           </div>
         </div>
       </nav>
@@ -87,28 +95,43 @@ const App: React.FC = () => {
                    ))}
                  </ul>
                </div>
+               
+               {/* Gráfico de Barras Sólidas */}
                <div className="relative">
                  <div className="absolute inset-0 bg-gradient-to-tr from-brand-500/20 to-purple-500/20 rounded-2xl blur-3xl"></div>
                  <div className="relative bg-dark-900 border border-white/10 rounded-2xl p-8 shadow-2xl">
-                    <div className="space-y-6">
-                      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                        <span className="text-gray-400">Organização de Dados</span>
-                        <div className="w-32 h-2 bg-dark-800 rounded-full overflow-hidden">
-                          <div className="h-full bg-brand-500 w-full"></div>
+                    <div className="space-y-8">
+                      
+                      {/* Bar 1 */}
+                      <div>
+                        <div className="flex justify-between items-end mb-2">
+                           <span className="text-sm font-medium text-gray-300">Organização de Dados</span>
+                        </div>
+                        <div className="w-full bg-dark-950 rounded-full h-2.5 border border-white/5 relative overflow-hidden">
+                           <div className="absolute top-0 left-0 h-full w-[90%] bg-brand-500 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.5)]"></div>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                        <span className="text-gray-400">Automação de Fluxo</span>
-                        <div className="w-32 h-2 bg-dark-800 rounded-full overflow-hidden">
-                          <div className="h-full bg-blue-500 w-3/4"></div>
+
+                      {/* Bar 2 */}
+                      <div>
+                        <div className="flex justify-between items-end mb-2">
+                           <span className="text-sm font-medium text-gray-300">Automação de Fluxo</span>
+                        </div>
+                        <div className="w-full bg-dark-950 rounded-full h-2.5 border border-white/5 relative overflow-hidden">
+                           <div className="absolute top-0 left-0 h-full w-[65%] bg-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400">Modelos Proprietários</span>
-                        <div className="w-32 h-2 bg-dark-800 rounded-full overflow-hidden">
-                          <div className="h-full bg-purple-500 w-1/2"></div>
+
+                      {/* Bar 3 */}
+                      <div>
+                        <div className="flex justify-between items-end mb-2">
+                           <span className="text-sm font-medium text-gray-300">Modelos Proprietários</span>
+                        </div>
+                        <div className="w-full bg-dark-950 rounded-full h-2.5 border border-white/5 relative overflow-hidden">
+                           <div className="absolute top-0 left-0 h-full w-[35%] bg-purple-500 rounded-full shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
                         </div>
                       </div>
+
                     </div>
                  </div>
                </div>
@@ -116,18 +139,16 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-24 relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-brand-900/10 blur-[100px] pointer-events-none"></div>
-          <div className="container mx-auto px-6 relative z-10">
-            <ContactForm />
-          </div>
+        <section id="contact" className="py-24">
+            <div className="container mx-auto px-6">
+                <ContactForm />
+            </div>
         </section>
       </main>
 
       <Footer />
-      <WhatsAppButton />
       <ChatWidget />
+      <WhatsAppButton />
     </div>
   );
 };

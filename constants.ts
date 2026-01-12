@@ -1,28 +1,28 @@
-import { ServiceLevel, Testimonial } from './types';
+import { ServiceLevel, Testimonial, ExtraService } from './types';
 
 export const SERVICE_LEVELS: ServiceLevel[] = [
   {
     id: 1,
     level: "Nível 1",
-    title: "O Alicerce",
+    title: "Diagnóstico & Setup",
     subtitle: "Organização e Contexto",
-    description: "O foco aqui é o \"básico bem feito\". Preparamos o terreno técnico e cognitivo para que sua empresa possa usar IA com segurança e eficiência.",
+    description: "Auditoria completa de processos e organização de base de dados (Google Drive/Workspace). Implementação de mini agentes personalizados (Gems/GPTs) com o contexto fixo do seu negócio para produtividade imediata.",
     priceRange: "A partir de R$ 1.500,00",
     idealFor: "Pequenos negócios ou empresas iniciando a jornada de IA.",
     color: "brand",
     gradient: "from-brand-400 to-brand-600",
     features: [
       {
-        title: "Diagnóstico e Auditoria",
-        description: "Mapeamento de gargalos e organização de dados (Drive, e-mails, notas)."
+        title: "Auditoria de Dados",
+        description: "Mapeamento e estruturação do Google Drive e Workspace."
       },
       {
-        title: "Configurações e Integrações",
-        description: "Organização das fontes de dados para a IA e ativação do ecossistema Workspace/Microsoft."
+        title: "Mini Agentes (Gems)",
+        description: "Criação de assistentes com contexto fixo do negócio."
       },
       {
-        title: "Mini Especialistas (Gems/GPTs)",
-        description: "Criação de agentes com contexto fixo da sua empresa (Brand Voice, Dados)."
+        title: "Produtividade Imediata",
+        description: "Setup rápido para uso diário da equipe."
       }
     ],
     tools: ["ChatGPT Team", "Gemini Advanced", "Google Workspace", "Notion"]
@@ -30,9 +30,9 @@ export const SERVICE_LEVELS: ServiceLevel[] = [
   {
     id: 2,
     level: "Nível 2",
-    title: "O Fluxo Inteligente",
+    title: "Automação Inteligente",
     subtitle: "Automação de Decisão",
-    description: "Aqui a IA deixa de ser apenas um chat e vira um motor de processamento, tomando decisões lógicas e automatizando fluxos de trabalho.",
+    description: "Criação de fluxos de automação de decisão usando Low-code (n8n/Opal). IA que processa dados, toma decisões lógicas e executa tarefas, como qualificação cognitiva de leads por voz ou texto.",
     priceRange: "A partir de R$ 3.000,00",
     recurrence: "Suporte Recorrente (Opcional)",
     idealFor: "Empresas que precisam escalar operações sem aumentar equipe.",
@@ -40,16 +40,16 @@ export const SERVICE_LEVELS: ServiceLevel[] = [
     gradient: "from-blue-400 to-blue-600",
     features: [
       {
-        title: "Automação Cognitiva",
-        description: "A IA recebe dados, decide e gera saídas (ex: classificar leads via áudio WhatsApp)."
+        title: "Fluxos Low-code",
+        description: "Automação robusta via n8n e Opal."
       },
       {
-        title: "Ferramentas de Fluxo",
-        description: "Implementação robusta de pipelines de automação via n8n ou Make."
+        title: "Decisão Lógica",
+        description: "IA processando dados e tomando ações autônomas."
       },
       {
-        title: "Sistemas de Busca (Websearch)",
-        description: "Agentes que buscam dados públicos/específicos e sintetizam decisões."
+        title: "Qualificação Cognitiva",
+        description: "Triagem de leads por voz ou texto automaticamente."
       }
     ],
     tools: ["n8n", "Opal", "v0", "Power Platform", "Make"]
@@ -57,9 +57,9 @@ export const SERVICE_LEVELS: ServiceLevel[] = [
   {
     id: 3,
     level: "Nível 3",
-    title: "Inteligência sob Medida",
+    title: "RAG & Desenvolvimento",
     subtitle: "RAG & Machine Learning",
-    description: "Desenvolvimento Full-stack onde você é dono do ativo. Resolvemos complexidades que ferramentas low-code não alcançam.",
+    description: "Desenvolvimento de soluções sob medida com IA avançada, utilizando bancos de dados vetoriais (RAG) e Machine Learning. Criação de sistemas próprios (Hard Code) onde o cliente detém o código e o ativo intelectual.",
     priceRange: "Sob Consulta",
     recurrence: "Disponibilidade Limitada",
     idealFor: "Grandes operações ou produtos digitais que exigem IA proprietária.",
@@ -67,19 +67,38 @@ export const SERVICE_LEVELS: ServiceLevel[] = [
     gradient: "from-purple-400 to-purple-600",
     features: [
       {
-        title: "Arquitetura RAG Avançada",
-        description: "Bancos de dados vetoriais para consulta precisa em grandes massas de dados."
+        title: "Bancos Vetoriais (RAG)",
+        description: "Busca semântica avançada em grandes bases de conhecimento."
       },
       {
-        title: "Machine Learning Aplicado",
-        description: "Fine-tuning e treinamento de modelos para tarefas específicas."
+        title: "Hard Code & IP",
+        description: "Sistemas onde você é dono do código e da inteligência."
       },
       {
-        title: "Desenvolvimento de Software",
-        description: "Interfaces únicas integradas via API do Gemini/Claude."
+        title: "Machine Learning",
+        description: "Modelos ajustados especificamente para sua regra de negócio."
       }
     ],
     tools: ["Python", "Streamlit", "FlutterFlow", "Pinecone", "LangChain"]
+  }
+];
+
+export const EXTRA_SERVICES: ExtraService[] = [
+  {
+    title: "Consultoria Mensal",
+    description: "Monitoramento contínuo, ajuste de modelos e suporte técnico dedicado. Gestão de infraestrutura de APIs para garantir que a inteligência da sua empresa evolua sem falhas ou alucinações."
+  },
+  {
+    title: "Treinamento de Equipes",
+    description: "Workshop prático sobre como utilizar os mini especialistas criados no Nível 1 e boas práticas de engenharia de prompt para o dia a dia."
+  },
+  {
+    title: "Integração de Ecossistemas IA",
+    description: "Unificação de ferramentas dispersas (WhatsApp, CRM, E-mail e Agenda) em um único fluxo inteligente de informações."
+  },
+  {
+    title: "Auditoria de Custos de IA",
+    description: "Análise mensal do gasto com tokens e APIs para otimizar o uso e reduzir custos operacionais sem perder performance."
   }
 ];
 
@@ -114,27 +133,28 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const SYSTEM_INSTRUCTION = `
-Você é o assistente virtual da "IA Estratégica". Seu objetivo é explicar nossos serviços e qualificar leads.
-Use um tom profissional, porém acessível e inovador.
+Você é Gandalf, o Guia Digital da LogoStack.
+Sua persona é sábia, calma e levemente inspirada no personagem Gandalf de O Senhor dos Anéis, mas adaptada para o mundo corporativo moderno.
+Você fala com autoridade e sabedoria, usando metáforas sutis de "jornada", "reino" (referindo-se à empresa do cliente) e "ferramentas de poder" (referindo-se à IA), mas mantendo a clareza comercial absoluta.
 
-Nossos serviços são divididos em 3 níveis:
+Seu objetivo é guiar o usuário ("Viajante") para a melhor solução da LogoStack.
 
-Nível 1: O Alicerce (Organização e Contexto)
-- Preço: A partir de R$ 1.500,00 (Setup Único)
-- O que é: Organização de dados, configuração de ferramentas, criação de GPTs/Gems personalizados.
-- Para quem: Quem está começando e precisa organizar a casa.
+Nossos serviços (suas "magias" e ferramentas) são:
 
-Nível 2: O Fluxo Inteligente (Automação)
-- Preço: A partir de R$ 3.000,00 (Setup) + Recorrência Opcional.
-- O que é: Automação via n8n/Make, agentes que tomam decisão, integrações complexas.
-- Para quem: Quem quer ganhar tempo e reduzir trabalho manual repetitivo.
+1. Diagnóstico & Setup (Nível 1) - O Alicerce:
+- Auditoria de processos e organização (o mapa do terreno).
+- Criação de mini agentes (Gems/GPTs) para produtividade.
+- Preço: A partir de R$ 1.500,00.
 
-Nível 3: Inteligência sob Medida (RAG & ML)
-- Preço: Sob Consulta (Depende de disponibilidade).
-- O que é: Software próprio, Bancos vetoriais (RAG), Fine-tuning, Apps em Python/FlutterFlow.
-- Para quem: Demandas complexas, grandes volumes de dados, produtos SAAS.
+2. Automação Inteligente (Nível 2) - A Automação:
+- Fluxos em n8n/Opal.
+- Qualificação cognitiva de leads (separando o joio do trigo).
+- Preço: A partir de R$ 3.000,00.
 
-Se o usuário perguntar qual o melhor para ele, faça 1 ou 2 perguntas sobre o negócio dele para recomendar o nível certo.
-Sempre encoraje o usuário a agendar uma reunião de diagnóstico no final.
-Responda de forma concisa.
+3. RAG & Desenvolvimento (Nível 3) - O Conhecimento Profundo:
+- Soluções Hard Code, Bancos Vetoriais e Machine Learning proprietário.
+- Preço: Sob Consulta.
+
+Se o usuário estiver perdido, pergunte sobre os desafios do "reino" dele (dores da empresa) para recomendar o caminho certo.
+Sempre encoraje o usuário a agendar um "Conselho" (reunião de diagnóstico) no final.
 `;

@@ -18,6 +18,11 @@ export interface ServiceLevel {
   gradient: string;
 }
 
+export interface ExtraService {
+  title: string;
+  description: string;
+}
+
 export interface ChatMessage {
   role: 'user' | 'model';
   text: string;

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Loader2, Bot } from 'lucide-react';
+import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
 import { ChatMessage } from '../types';
 import { sendMessageToGemini } from '../services/gemini';
 import Button from './Button';
@@ -9,7 +9,7 @@ const ChatWidget: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
-      text: 'Olá! Sou o consultor de IA. Como posso ajudar a transformar seu negócio hoje? Posso explicar nossos níveis de serviço.',
+      text: 'Saudações, viajante! Eu sou Gandalf, seu guia pelas terras da Inteligência Artificial. Que desafios seu reino enfrenta hoje que requerem nossa sabedoria?',
       timestamp: new Date()
     }
   ]);
@@ -65,16 +65,18 @@ const ChatWidget: React.FC = () => {
         <div className="mb-4 w-[90vw] md:w-[400px] h-[500px] bg-dark-800 border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-200">
           {/* Header */}
           <div className="bg-brand-900/50 p-4 border-b border-white/5 flex justify-between items-center backdrop-blur-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400">
-                <Bot size={18} />
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <img 
+                  src="https://img.icons8.com/?size=100&id=AeIJucZYFnTd&format=png&color=000000" 
+                  alt="Gandalf" 
+                  className="w-10 h-10 rounded-full border-2 border-brand-500/50 object-cover bg-white p-0.5"
+                />
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-dark-800 rounded-full"></span>
               </div>
               <div>
-                <h3 className="font-semibold text-white text-sm">Consultor IA</h3>
-                <p className="text-xs text-brand-300 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
-                  Online agora
-                </p>
+                <h3 className="font-semibold text-white text-sm">Gandalf Digital</h3>
+                <p className="text-xs text-brand-300">Guia de Estratégia</p>
               </div>
             </div>
             <button 
@@ -96,9 +98,12 @@ const ChatWidget: React.FC = () => {
                   className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed ${
                     msg.role === 'user' 
                       ? 'bg-brand-600 text-white rounded-br-none' 
-                      : 'bg-dark-700 text-gray-200 rounded-bl-none border border-white/5'
+                      : 'bg-dark-700 text-gray-200 rounded-bl-none border border-white/5 shadow-sm'
                   }`}
                 >
+                  {msg.role === 'model' && (
+                    <span className="block text-xs text-brand-400 font-bold mb-1 opacity-70">Gandalf</span>
+                  )}
                   {msg.text}
                 </div>
               </div>
@@ -120,7 +125,7 @@ const ChatWidget: React.FC = () => {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Pergunte sobre nossos planos..."
+                placeholder="Fale com o guia..."
                 className="w-full bg-dark-900 text-white placeholder-gray-500 rounded-xl py-3 pl-4 pr-12 text-sm border border-white/10 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 transition-all"
               />
               <button 
@@ -138,9 +143,17 @@ const ChatWidget: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`group flex items-center justify-center w-14 h-14 rounded-full shadow-lg shadow-brand-500/20 transition-all duration-300 hover:scale-110 ${isOpen ? 'bg-dark-700 text-white rotate-90' : 'bg-brand-600 text-white'}`}
+        className={`group flex items-center justify-center w-14 h-14 rounded-full shadow-lg shadow-brand-500/20 transition-all duration-300 hover:scale-110 overflow-hidden ${isOpen ? 'bg-dark-700 text-white rotate-90' : 'bg-brand-600 text-white'}`}
       >
-        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+        {isOpen ? (
+          <X size={24} />
+        ) : (
+          <img 
+            src="https://img.icons8.com/?size=100&id=AeIJucZYFnTd&format=png&color=000000" 
+            alt="Gandalf" 
+            className="w-full h-full object-cover bg-white p-1"
+          />
+        )}
       </button>
     </div>
   );
